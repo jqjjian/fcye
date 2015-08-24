@@ -342,7 +342,7 @@ add_filter( 'post_updated_messages', 'partner_updated_messages' );
  */
 add_image_size('新闻配图小' , 320, 150, true);
 add_image_size('新闻配图大' , 750, 316, true);
-add_image_size('创业者头像' , 210, 250, true);
+add_image_size('创业者头像' , 210, 250);
 add_image_size('企业logo' , 124, 124);
 
 /**
@@ -414,3 +414,9 @@ function change_default_title( $title ){
 	return $title;
 }
 add_filter( 'enter_title_here', 'change_default_title' );
+
+//隐藏版本号
+function wpbeginner_remove_version() {
+return '';
+}
+add_filter('the_generator', 'wpbeginner_remove_version');
