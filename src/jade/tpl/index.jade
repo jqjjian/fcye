@@ -1,0 +1,98 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    //div.container-fluid
+      //div.row
+    div(id="carousel-example-generic" class="carousel slide" data-ride="carousel")
+          //Indicators
+          ol.carousel-indicators
+            li(data-target="#carousel-example-generic" data-slide-to="0" class="active")
+            li(data-target="#carousel-example-generic" data-slide-to="1")
+            li(data-target="#carousel-example-generic" data-slide-to="2")
+          //Wrapper for slides
+          div.carousel-inner(role="listbox")
+            div.item.active
+              a(href="#")
+                img(src="../static/images/55861a41b14d7.jpg" alt="" width="100%" height="100%")
+              div.carousel-caption
+            div.item
+              a(href="#")
+                img(src="../static/images/5586178db0366.jpg" alt="" width="100%")
+              div.carousel-caption
+            div.item
+              a(href="#")
+                img(src="../static/images/5586195a8602b.jpg" alt="" width="100%")
+              div.carousel-caption
+          //Controls
+          a(class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev")
+            span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+            span.sr-only Previous
+          a(class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next")
+            span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+            span.sr-only
+    section.news
+      .container
+        div.row
+          div.col-lg-12.col-md-12.col-sm-12
+            div.col-xs-12.col-sm-6.col-md-3.col-lg-offset-1.col-lg-3.col-md-offset-1
+              div.h3.new-title.text-center 新闻公告
+            div.col-xs-12.col-sm-6.col-md-6.col-md-offset-1.col-lg-5
+              div.list-group.new-list
+                a.list-group-item(href="#") 新闻标题测试文字测试文字测试文字测试文字
+                a.list-group-item(href="#") 新闻标题测试文字测试文字测
+                a.list-group-item(href="#") 首届中国青年创业公益论坛在沪举行
+                a.list-group-item(href="#") 新闻标题测试试文字测试文字
+                a.list-group-item(href="#") 首届中国青年创业公益论坛在沪举行32132132123132132
+            .col-sm-2.col-md-3.pull-right.text-right
+              a.moer(href="#") 更多>>>
+      a.down-btn.text-center(href="#")
+        i.glyphicon.glyphicon-menu-down
+    section.container.partners
+      h3.text-center 青创会伙伴
+      - for(var i=0;i<10;i++){
+          img.img-circle(src="../static/images/u=1977945241,1806250151&fm=21&gp=0.jpg")
+      - }
+    section.entrepreneurs
+      div.mask.text-center
+        h3 知名创业者
+      - for(var i=0;i<15;i++){
+          img(src="../static/images/pic_07.jpg")
+          img(src="../static/images/pic_09.jpg")
+          img(src="../static/images/pic_11.jpg")
+          img(src="../static/images/pic_13.jpg")
+      - }
+      a.down-btn.text-center(href="#")
+        i.glyphicon.glyphicon-menu-down
+    section.entrepreneur-list
+      div.container.pr
+        div.row.text-center
+          - for(var i=0;i<20;i++){
+              div.col-xs-12.col-sm-3.col-md-2.col-lg-2.img-box
+                a.pr.thumbnail.img-link(href="#")
+                  img.img-responsive(src="../static/images/2008853_103249003876_2.jpg")
+                  div.pa.info
+                    p.name 李加乘
+                    p.company 二奶保险公司
+          - }
+        a.moer(href="#") 更多>>>
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")
+    script.
+      (function(window,undefined){
+        function showHeight(){
+          var topHeight = $('.navbar').height(),
+            newsHeight = $('.news').height();
+            reelHeight = $(window).height() - (topHeight+newsHeight)
+          $('#carousel-example-generic .item').height(reelHeight);
+        }
+        showHeight()
+        $(window).resize(showHeight);
+      })(window)

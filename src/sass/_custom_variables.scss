@@ -1,0 +1,11 @@
+// Basics of a navbar
+$dominant-color : #0baca6;
+//$navbar-height: 100px;
+$navbar-default-link-color: #000;
+$navbar-default-link-hover-color: $dominant-color;
+$navbar-default-link-active-color : $dominant-color;
+$navbar-collapse-max-height: auto;
+$grid-float-breakpoint: 1200px;
+
+//## Font
+$font-family-sans-serif: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;

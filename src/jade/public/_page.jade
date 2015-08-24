@@ -1,0 +1,22 @@
+section.text-center.page
+  nav
+    ul.pagination
+      li.page-first
+        a(href="#")
+      li.page-prev
+        a(href="#" aria-label="Previous")
+      - for(var i=1;i<7;i++){
+          - if(i==3)
+            li.active
+              a(href="#")= i
+          - else if(i==6)
+            li
+              a(href="#") …
+          - else
+            li
+              a(href="#")= i
+      - }
+      li.page-next
+        a(href="#" aria-label="Next")
+      li.page-last
+        a(href="#")

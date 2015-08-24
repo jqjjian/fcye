@@ -1,0 +1,66 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    section.banner
+      div.container-fluid
+        div.row
+          div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            div.banner-bg(style="background:url(../static/images/banner_03.jpg) center 0 no-repeat;")
+    section
+      div.container-fluid
+        div.row
+          div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            ol.breadcrumb
+              li
+                a(href="#") 首页
+              li
+                a(href="#") 关于
+              li.active 服务介绍
+    section.estp-details
+      .container-fluid
+        .row
+          .col-md-10
+            .introduce-bx
+              .title-bar.etur
+              .cont-bos
+                img.pull-left(src="../static/images/pic_09.jpg")
+                .info-cont
+                  h3
+                    | 李三
+                    p
+                      small 随心智能科技
+                  hr
+                  p.indent 卢仕兵，1964年9月10日出生于浙江省杭州市，祖籍浙江绍兴嵊州（原嵊县）谷来镇，中国着名企业家，阿里巴巴集团、淘宝网、支付宝创始人。2013年5月10日，马云卸任阿里巴巴集团CEO，但兼任阿里巴巴集团董事局主席、中国雅虎董事局主席、杭州师范大学阿里巴巴商学院院长、华谊兄弟传媒集团董事、菜鸟网络董事长等职务，是中国IT企业的代表性人物。
+            .info-bx
+              .title-bar.info
+              ul.list-unstyled.info-list
+                - for(var i=0;i<20;i++){
+                  li
+                    a(href="#")
+                      h4
+                        strong 单身股民：股市震荡震丢了恋爱的心思
+                    p “最近股市振幅太大，幸亏年轻，心理承受能力强，不然要震出毛病。这几天震荡又这么大，连对象都不想找了！”
+                - }
+            include ../public/_page
+          .col-md-2
+            .sidebar.top-icon
+              - for(var i=0;i<5;i++){
+                div.img-box.text-center
+                  a.pr.thumbnail.img-link(href="#")
+                    img.img-responsive(src="../static/images/2008853_103249003876_2.jpg")
+                    div.pa.info
+                      p.name 李加乘
+                      p.company 二奶保险公司
+              - }
+              .text-right
+                a(href="#") 更多>>>
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")

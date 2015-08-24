@@ -1,0 +1,18 @@
+footer
+  div.container
+    div.row
+      div.col-md-12
+        div.box-line
+          span.links 友情连接
+          - var links = ['桂商资产','青创基金众筹','青创众筹','董事局','阿里云','淘宝网','京东','中国银行','农业银行','浦发银行','银联','万事达','jcb','visa']
+          - for link in links
+              a(href="#")= link
+              | |
+        div.copyright.text-center
+          p
+            - var menus = ['关于我们','联系我们','版权声明','使用条款']
+            - for menu in menus
+                a(href="#")= menu
+                | |
+          p 广西青创众筹网络科技有限公司 fcye.org 版权所有
+          p 桂ICP备13006614号-1

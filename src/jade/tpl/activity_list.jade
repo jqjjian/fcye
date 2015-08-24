@@ -1,0 +1,76 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    .container-fluid
+      .row
+        .col-sm-10.col-sm-offset-1
+          div(id="carousel-example-generic" class="carousel slide" data-ride="carousel")
+            //Indicators
+            ol.carousel-indicators
+              li(data-target="#carousel-example-generic" data-slide-to="0" class="active")
+              li(data-target="#carousel-example-generic" data-slide-to="1")
+              li(data-target="#carousel-example-generic" data-slide-to="2")
+            //Wrapper for slides
+            div.carousel-inner(role="listbox")
+              div.item.active
+                img.img-responsive(src="../static/images/564654568.jpg" alt="" width="100%")
+                div.carousel-caption
+              div.item
+                img.img-responsive(src="../static/images/564654568.jpg" alt="" width="100%")
+                div.carousel-caption
+              div.item
+                img.img-responsive(src="../static/images/564654568.jpg" alt="" width="100%")
+                div.carousel-caption
+            //Controls
+            a(class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev")
+              span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+              span.sr-only Previous
+            a(class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next")
+              span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+              span.sr-only
+        .col-sm-12
+          .pic-list-line.clearfix
+            h4.pull-left 活动摄影
+            .title-line
+        .col-sm-5ths
+          a.pic-preview.pic-preview-more(href="#")
+            span 图片精选
+            span.glyphicon.glyphicon-arrow-right
+            span.glyphicon.glyphicon-plus-sign
+        - for(var i=0;i<9;i++){
+          .col-sm-5ths
+            a.pic-preview(href="#")
+              img.img-responsive(src="../static/images/54654asdf.jpg" width="100%")
+              p.pic-preview-title 中国首支维和步兵营南苏丹正式执行任务（1/6）
+              p.pic-preview-time
+                | 2015-05-27
+                time 09:52:47
+        - }
+        .col-sm-12
+          .pic-list-line
+            h4.pull-left 活动视频
+            .title-line
+        .col-sm-5ths
+          a.pic-preview.pic-preview-more(href="#")
+            span 视频精选
+            span.glyphicon.glyphicon-arrow-right
+            span.glyphicon.glyphicon-plus-sign
+        - for(var i=0;i<9;i++){
+          .col-sm-5ths
+            a.pic-preview(href="#")
+              img.img-responsive(src="../static/images/54654asdf.jpg" width="100%")
+              p.pic-preview-title 中国首支维和步兵营南苏丹正式执行任务（1/6）
+              p.pic-preview-time
+                | 2015-05-27
+                time 09:52:47
+        - }
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")

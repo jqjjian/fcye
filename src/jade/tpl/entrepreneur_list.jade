@@ -1,0 +1,40 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    section.banner
+      div.container-fluid
+        div.row
+          div.col-xs-12.col-sm-12.col-md-12.col-lg-12(style="background:url(../images/banner_03.jpg)")
+            div.banner-bg(style="background:url(../static/images/banner_03.jpg) center 0 no-repeat;")
+    section
+      div.container-fluid
+        div.row
+          div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            ol.breadcrumb
+              li
+                a(href="#") 首页
+              li
+                a(href="#") 关于
+              li.active 服务介绍
+    section.entrepreneur-list.list
+      div.container-fluid.pr
+        div.row.text-center
+          - for(var i=0;i<20;i++){
+              div.col-xs-12.col-sm-3.col-md-2.col-lg-2.img-box
+                a.pr.thumbnail.img-link(href="#")
+                  img.img-responsive(src="../static/images/2008853_103249003876_2.jpg")
+                  div.pa.info
+                    p.name 李加乘
+                    p.company 二奶保险公司
+          - }
+    include ../public/_page
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")
