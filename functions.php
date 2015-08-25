@@ -281,6 +281,102 @@ function news_custom_taxonomy_genre(){
 		register_taxonomy( 'genre', 'news', $args );
 }
 add_action('init', 'news_custom_taxonomy_genre' );
+
+/**
+ * 自定义内容类型 - 公益活动
+ */
+function activity_custom_post_activity(){
+  $labels = array(
+    'name'               => '活动',
+    'singular_name'      => '活动',
+    'add_new'            => '添加活动信息',
+    'add_new_item'       => '添加活动信息',
+    'edit_item'          => '编辑活动信息',
+    'new_item'           => '新的活动信息',
+    'all_items'          => '所有活动信息',
+    'view_item'          => '查看活动信息',
+    'search_item'        => '搜索活动信息',
+    'not_found'          => '未找到活动信息',
+    'not_found_in_trash' => '回收站里没找到活动信息',
+    'menu_name'          => '活动'
+  );
+  $args = array(
+    'public'        => true,
+    'labels'        => $labels,
+    'menu_position' => 5,
+    'supports'      => array('title', 'editor', 'thumbnail'),
+    'has_archive'   => true,//使用归档页面模板
+    'rewrite'       => array('slug' => 'news-page', 'with_front' => false),//重写归档地址,去掉archives
+    'taxonomies'    => array('category'),
+  );
+  register_post_type('activity', $args );
+}
+add_action('init', 'activity_custom_post_activity' );
+/*
+ * 自定义内容类型的内容更新信息 - 新闻
+ */
+function activity_updated_messages( $messages ) {
+  global $post, $post_ID;
+
+  $messages['activity'] = array(
+    0 => '', // 没有用，信息从索引 1 开始。
+    1 => sprintf( __('活动已更新，<a href="%s">点击查看</a>', 'activity'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('自定义字段已更新。', 'activity'),
+    3 => __('自定义字段已删除。', 'activity'),
+    4 => __('活动已更新。', 'activity'),
+    // translators: %s: 修订版本的日期与时间
+    5 => isset($_GET['revision']) ? sprintf( __('活动恢复到了 %s 这个修订版本。', 'activity'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('活动已发布，<a href="%s">点击查看</a>', 'activity'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('活动已保存', 'activity'),
+    8 => sprintf( __('活动已提交， <a target="_blank" href="%s">点击预览</a>', 'activity'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('活动发布于：<strong>%1$s</strong>， <a target="_blank" href="%2$s">点击预览</a>', 'activity'),
+      // translators: 发布选项日期格式，查看 http://php.net/date
+      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('活动草稿已更新，<a target="_blank" href="%s">点击预览</a>', 'activity'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'activity_updated_messages' );
+// /**
+//  * 自定义分类法 - 新闻类型
+//  */
+// function activity_custom_taxonomy_genre(){
+//     $labels = array(
+//       'name'                         => '活动',
+//       'singular_name'                => '活动',
+//       'search_items'                 => '搜索活动',
+//       'popular_items'                => '热门活动',
+//       'all_items'                    => '所有活动',
+//       'parent_item'                  => null,
+//       'parent_item_colon'            => null,
+//       'edit_item'                    => '编辑活动',
+//       'update_item'                  => '更新活动',
+//       'add_new_item'                 => '添加活动',
+//       'new_item_name'                => '新的活动',
+//       'separate_items_with_commas'   => '使用逗号分隔不同的活动',
+//       'add_or_remove_items'          => '添加或移除活动',
+//       'choose_from_most_used'        => '从使用最多的活动里选择',
+//       'menu_name'                    => '活动'
+//     );
+//     $args = array(
+//       'labels'            => $labels,
+//       'public'            => true,
+//       // 'show_in_nav_menus' => true,
+//       // 'show_admin_column' => false,
+//       //  'hierarchical'     => false,
+//       // 'show_tagcloud'     => true,
+//       // 'show_ui'           => true,
+//       // 'query_var'         => true,
+//       // 'rewrite'           => true,
+//       // 'query_var'         => true,
+//       // 'capabilities'      => array(),
+//     );
+//     register_taxonomy( 'genre', 'activity', $args );
+// }
+// add_action('init', 'activity_custom_taxonomy_genre' );
+
+
 /**
  * 自定义内容类型 - 合作伙伴
  */
@@ -342,7 +438,7 @@ add_filter( 'post_updated_messages', 'partner_updated_messages' );
  */
 add_image_size('新闻配图小' , 320, 150, true);
 add_image_size('新闻配图大' , 750, 316, true);
-add_image_size('创业者头像' , 210, 250);
+add_image_size('创业者头像' , 210, 250, true);
 add_image_size('企业logo' , 124, 124);
 
 /**

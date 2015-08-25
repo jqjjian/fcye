@@ -605,12 +605,6 @@ body{
 	@media(min-width:$screen-md-min){
 		height:230px;
 	}
-	@media(min-width:$screen-lg-min){
-		height:250px;
-	}
-	@media(min-width:1460px){
-		height:303px;
-	}
 	&:after{
 		z-index:-1;
 		position:absolute;
@@ -646,6 +640,7 @@ body{
 		}
 	}
 	&:hover{
+		text-decoration: none;
 		&:after{
 			border: 2px solid $dominant-color;
 		}

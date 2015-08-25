@@ -7022,16 +7022,6 @@ body {
     height: 230px;
   }
 }
-@media (min-width: 1200px) {
-  .pic-preview {
-    height: 250px;
-  }
-}
-@media (min-width: 1460px) {
-  .pic-preview {
-    height: 303px;
-  }
-}
 .pic-preview:after {
   z-index: -1;
   position: absolute;
@@ -7067,6 +7057,9 @@ body {
 }
 .pic-preview.pic-preview-more span.glyphicon {
   color: #c9c9c9;
+}
+.pic-preview:hover {
+  text-decoration: none;
 }
 .pic-preview:hover:after {
   border: 2px solid #0baca6;
