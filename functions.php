@@ -496,6 +496,7 @@ add_image_size('新闻配图小' , 320, 150, true);
 add_image_size('新闻配图大' , 750, 316, true);
 add_image_size('创业者头像' , 210, 250, true);
 add_image_size('企业logo' , 124, 124);
+add_image_size('视频封面' , 930, 550, true);
 
 /**
  * 设置文章摘要默认显示字数

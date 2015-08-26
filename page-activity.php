@@ -46,7 +46,7 @@ get_header(); ?>
 	    'post_type'      => 'activity',
 	    'posts_per_page' => 9,
 	    'orderby'        => 'date',
-	    'category__in' => 9,
+	    'category__in' => 15,
 	  ); ?>
 	  <?php $myquery =  new WP_Query($myqueryargs); ?>
 	  <?php if($myquery -> have_posts()) : ?>
@@ -74,13 +74,25 @@ get_header(); ?>
     		<span class="glyphicon glyphicon-plus-sign"></span>
     	</a>
     </div>
-    <div class="col-sm-5ths">
-    	<a href="#" class="pic-preview">
-    		<img src="../static/images/54654asdf.jpg" width="100%" class="img-responsive">    
-    		<p class="pic-preview-title">中国首支维和步兵营南苏丹正式执行任务（1/6）</p>
-    		<p class="pic-preview-time">2015-05-27</p>
-    	</a>
-    </div>
+     <?php $myvedios = array(
+      'post_type'      => 'activity',
+      'posts_per_page' => 9,
+      'orderby'        => 'date',
+      'category__in' => 16,
+    ); ?>
+    <?php $myvedio=  new WP_Query($myvedios); ?>
+    <?php if($myvedio -> have_posts()) : ?>
+      <?php while ($myvedio -> have_posts()) : $myvedio -> the_post(); ?>
+        <div class="col-sm-5ths">
+        	<a href="#" class="pic-preview">
+        		<img src="<?php echo wp_get_attachment_image_src(get_field('activity-vedio-cover'), 'thumbnail')[0]; ?>" class="img-responsive">    
+        		<p class="pic-preview-title"><?php the_title(); ?></p>
+        		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
+        	</a>
+        </div>
+      <?php endwhile; ?>
+    <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
   </div>
 </div>
 <?php get_footer(); ?>

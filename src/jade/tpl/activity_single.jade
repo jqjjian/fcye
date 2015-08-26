@@ -1,0 +1,28 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    .container
+      .row
+        .col-md-10.pr5
+          .pic-box
+            a.page-img.img-prev
+            img.img-responsive(src="")
+            a.page-img.img-next
+        .col-md-2
+          .img-list-head
+            i.img-size 专辑(20张)
+            | titletitletitletitletitle
+          .img-list-box
+            .img-row
+              a(href="#").img-ltem
+                img(src="" width="85" height="85")
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")
