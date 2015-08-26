@@ -283,7 +283,7 @@ function news_custom_taxonomy_genre(){
 add_action('init', 'news_custom_taxonomy_genre' );
 
 /**
- * 自定义内容类型 - 公益活动
+ * 自定义内容类型 - 活动
  */
 function activity_custom_post_activity(){
   $labels = array(
@@ -306,7 +306,7 @@ function activity_custom_post_activity(){
     'menu_position' => 5,
     'supports'      => array('title', 'editor', 'thumbnail'),
     'has_archive'   => true,//使用归档页面模板
-    'rewrite'       => array('slug' => 'news-page', 'with_front' => false),//重写归档地址,去掉archives
+    'rewrite'       => array('slug' => 'activity-page', 'with_front' => false),//重写归档地址,去掉archives
     'taxonomies'    => array('category'),
   );
   register_post_type('activity', $args );
@@ -338,6 +338,62 @@ function activity_updated_messages( $messages ) {
   return $messages;
 }
 add_filter( 'post_updated_messages', 'activity_updated_messages' );
+/**
+ * 自定义内容类型 - 公益慈善
+ */
+function publicbenefit_custom_post_publicbenefit(){
+  $labels = array(
+    'name'               => '公益慈善',
+    'singular_name'      => '公益慈善',
+    'add_new'            => '添加公益慈善信息',
+    'add_new_item'       => '添加公益慈善信息',
+    'edit_item'          => '编辑公益慈善信息',
+    'new_item'           => '新的公益慈善信息',
+    'all_items'          => '所有公益慈善信息',
+    'view_item'          => '查看公益慈善信息',
+    'search_item'        => '搜索公益慈善信息',
+    'not_found'          => '未找到公益慈善信息',
+    'not_found_in_trash' => '回收站里没找到公益慈善信息',
+    'menu_name'          => '公益慈善'
+  );
+  $args = array(
+    'public'        => true,
+    'labels'        => $labels,
+    'menu_position' => 5,
+    'supports'      => array('title', 'editor', 'thumbnail'),
+    'has_archive'   => true,//使用归档页面模板
+    'rewrite'       => array('slug' => 'publicbenefit-page', 'with_front' => false),//重写归档地址,去掉archives
+    'taxonomies'    => array('category'),
+  );
+  register_post_type('publicbenefit', $args );
+}
+add_action('init', 'publicbenefit_custom_post_publicbenefit' );
+/*
+ * 自定义内容类型的内容更新信息 - 新闻
+ */
+function publicbenefit_updated_messages( $messages ) {
+  global $post, $post_ID;
+
+  $messages['publicbenefit'] = array(
+    0 => '', // 没有用，信息从索引 1 开始。
+    1 => sprintf( __('公益慈善信息已更新，<a href="%s">点击查看</a>', 'publicbenefit'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('自定义字段已更新。', 'publicbenefit'),
+    3 => __('自定义字段已删除。', 'publicbenefit'),
+    4 => __('公益慈善信息已更新。', 'publicbenefit'),
+    // translators: %s: 修订版本的日期与时间
+    5 => isset($_GET['revision']) ? sprintf( __('公益慈善信息恢复到了 %s 这个修订版本。', 'publicbenefit'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('公益慈善信息已发布，<a href="%s">点击查看</a>', 'publicbenefit'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('公益慈善信息已保存', 'publicbenefit'),
+    8 => sprintf( __('公益慈善信息已提交， <a target="_blank" href="%s">点击预览</a>', 'publicbenefit'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('公益慈善信息发布于：<strong>%1$s</strong>， <a target="_blank" href="%2$s">点击预览</a>', 'publicbenefit'),
+      // translators: 发布选项日期格式，查看 http://php.net/date
+      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('公益慈善信息草稿已更新，<a target="_blank" href="%s">点击预览</a>', 'publicbenefit'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'publicbenefit_updated_messages' );
 // /**
 //  * 自定义分类法 - 新闻类型
 //  */
@@ -511,6 +567,18 @@ function change_default_title( $title ){
 }
 add_filter( 'enter_title_here', 'change_default_title' );
 
+
+//获取相册数量
+function post_img_number(){
+  global $post, $posts;
+  ob_start();
+  ob_end_clean();
+
+  //使用do_shortcode($post->post_content) 是为了处理在相册的情况下统计图片张数
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',do_shortcode($post->post_content), $matches);
+  $cnt = count( $matches[1] );
+  return $cnt;
+}
 //隐藏版本号
 function wpbeginner_remove_version() {
 return '';
