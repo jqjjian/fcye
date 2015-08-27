@@ -1,6 +1,5 @@
 .svn/
-
 .gitignore
 html/
 *.html
-PC/
+pc/
