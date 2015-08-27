@@ -7160,6 +7160,34 @@ body {
   margin-left: 85px;
 }
 
+.activity_single .pr5 {
+  padding-right: 5px;
+}
+.activity_single .pic-box {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+.activity_single .pic-box img {
+  padding: 0;
+  margin: 0;
+}
+.activity_single .pic-box .page-img {
+  position: absolute;
+  width: 52px;
+  height: 126px;
+  background: url(../images/img-page-bg.png) 0 0 no-repeat;
+  top: 50%;
+  margin-top: -63px;
+}
+.activity_single .pic-box .page-img.img-prev {
+  left: 0;
+}
+.activity_single .pic-box .page-img.img-next {
+  right: 2px;
+  background-position: -54px 0;
+}
+
 /* footer */
 footer {
   border-top: 5px solid #324d5b;
