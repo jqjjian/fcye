@@ -52,7 +52,7 @@ get_header(); ?>
 	  <?php if($myquery -> have_posts()) : ?>
       <?php while ($myquery -> have_posts()) : $myquery -> the_post(); ?>
 		    <div class="col-sm-5ths">
-		    	<a href="#" class="pic-preview">
+		    	<a href="<?php echo get_children( ); ?>" class="pic-preview">
 		    		<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail')[0]; ?>" class="img-responsive">
 		    		<p class="pic-preview-title"><?php the_title(); ?>（<?php echo post_img_number(); ?>）</p>
 		    		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
