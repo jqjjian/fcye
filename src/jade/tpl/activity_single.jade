@@ -5,19 +5,26 @@ html(lang="zh-CN")
     include ../public/_nav
     .container.activity_single
       .row
-        .col-md-10.pr5
+        .col-md-10
           .pic-box
             a(href="#").page-img.img-prev
             img.img-responsive(src="../static/images/456456.jpg" width="100%")
             a(href="#").page-img.img-next
-        .col-md-2
+        .col-md-2.pl5
           .img-list-head
             span.img-size 专辑(20张)
-            | titletitletitletitletitle
+            p
+              b 专题名称专题名称专题名称专题名称专题名称专题名称专题名。
           .img-list-box
             .img-row
-              a(href="#").img-ltem
-                img(src="" width="85" height="85")
+              - for(var i=0;i<20;i++){
+                - if(i==0)
+                  a(href="#").img-ltem.active
+                    img(src="../static/images/adfasdf.jpg" width="70" height="70")
+                - else
+                  a(href="#").img-ltem
+                    img(src="../static/images/adfasdf.jpg" width="70" height="70")
+              - }
     include ../public/_footer
     //jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")

@@ -725,7 +725,7 @@ body{
 			margin-bottom:15px;
 		}
 		&:before{
-			content:"知名创业者";
+			content:"脰陋脙没麓麓脪碌脮脽";
 		}
 	}
 }
@@ -740,11 +740,12 @@ body{
 	}
 }
 .activity_single{
-	.pr5{padding-right:5px;}
+	.pl5{padding-left:5px;}
 	.pic-box{
 		position:relative;
 		height:600px;
 		overflow:hidden;
+		margin-bottom:50px;
 		img{padding:0;margin:0;}
 		.page-img{
 			position:absolute;
@@ -759,6 +760,49 @@ body{
 			&.img-next{
 				right:2px;
 				background-position: -54px 0;
+			}
+		}
+	}
+	.img-list-head{
+		height:116px;
+		padding:5px;
+		padding-bottom:0;
+		background:#2f2f2f;
+		color:$label-color;
+		border-bottom:2px solid #000;
+		.img-size{
+			min-width:58px;
+			padding:5px;
+			font-size:12px;
+			background:#f08300;
+		}
+		p{padding-top:26px;}
+	}
+	.img-list-box{
+		background:#383838;
+		height:484px;
+		overflow-x:hidden;
+		overflow-y: scroll;
+		.img-row{
+			margin-left:-10px;
+			margin-right:-10px;
+			.img-ltem{
+				display:inline-block;
+				margin-left:10px;
+				margin-top:10px;
+				position:relative;
+				&.active{
+					&:after{
+						position:absolute;
+						content:"";
+						display:block;
+						border:2px solid #f08300;
+						width:100%;
+						height:100%;
+						left:0;
+						top:0;
+					}
+				}
 			}
 		}
 	}

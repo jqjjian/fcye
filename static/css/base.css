@@ -7146,7 +7146,7 @@ body {
   margin-bottom: 15px;
 }
 .estp-details .sidebar:before {
-  content: "知名创业者";
+  content: "脰陋脙没麓麓脪碌脮脽";
 }
 
 .pic-list-line {
@@ -7160,13 +7160,14 @@ body {
   margin-left: 85px;
 }
 
-.activity_single .pr5 {
-  padding-right: 5px;
+.activity_single .pl5 {
+  padding-left: 5px;
 }
 .activity_single .pic-box {
   position: relative;
   height: 600px;
   overflow: hidden;
+  margin-bottom: 50px;
 }
 .activity_single .pic-box img {
   padding: 0;
@@ -7186,6 +7187,49 @@ body {
 .activity_single .pic-box .page-img.img-next {
   right: 2px;
   background-position: -54px 0;
+}
+.activity_single .img-list-head {
+  height: 116px;
+  padding: 5px;
+  padding-bottom: 0;
+  background: #2f2f2f;
+  color: #fff;
+  border-bottom: 2px solid #000;
+}
+.activity_single .img-list-head .img-size {
+  min-width: 58px;
+  padding: 5px;
+  font-size: 12px;
+  background: #f08300;
+}
+.activity_single .img-list-head p {
+  padding-top: 26px;
+}
+.activity_single .img-list-box {
+  background: #383838;
+  height: 484px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.activity_single .img-list-box .img-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.activity_single .img-list-box .img-row .img-ltem {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+.activity_single .img-list-box .img-row .img-ltem.active:after {
+  position: absolute;
+  content: "";
+  display: block;
+  border: 2px solid #f08300;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 
 /* footer */
