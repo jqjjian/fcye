@@ -7173,7 +7173,7 @@ body {
   padding: 0;
   margin: 0;
 }
-.activity_single .pic-box .page-img {
+.activity_single .pic-box span a, .activity_single .pic-box .page-img {
   position: absolute;
   width: 52px;
   height: 126px;
@@ -7181,10 +7181,17 @@ body {
   top: 50%;
   margin-top: -63px;
 }
-.activity_single .pic-box .page-img.img-prev {
+.activity_single .pic-box span a.img-prev, .activity_single .pic-box .page-img.img-prev {
   left: 0;
 }
-.activity_single .pic-box .page-img.img-next {
+.activity_single .pic-box span a.img-next, .activity_single .pic-box .page-img.img-next {
+  right: 2px;
+  background-position: -54px 0;
+}
+.activity_single .pic-box span:first-child a {
+  left: 0;
+}
+.activity_single .pic-box span:last-child a {
   right: 2px;
   background-position: -54px 0;
 }

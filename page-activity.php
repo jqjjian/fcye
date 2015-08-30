@@ -52,7 +52,16 @@ get_header(); ?>
 	  <?php if($myquery -> have_posts()) : ?>
       <?php while ($myquery -> have_posts()) : $myquery -> the_post(); ?>
 		    <div class="col-sm-5ths">
-		    	<a href="<?php echo get_children( ); ?>" class="pic-preview">
+        <?php
+          $args = array(
+            'order'        => 'ASC',
+            'post_parent'    => get_the_ID(),
+            'post_type'      => 'attachment',
+            'post_mime_type' => 'image'
+          );
+          $images = array_values(get_children( $args ));
+        ?>
+		    	<a href="<?php echo get_attachment_link($images[0] -> ID);?>" class="pic-preview">
 		    		<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail')[0]; ?>" class="img-responsive">
 		    		<p class="pic-preview-title"><?php the_title(); ?>（<?php echo post_img_number(); ?>）</p>
 		    		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
@@ -85,7 +94,7 @@ get_header(); ?>
       <?php while ($myvedio -> have_posts()) : $myvedio -> the_post(); ?>
         <div class="col-sm-5ths">
         	<a href="#" class="pic-preview">
-        		<img src="<?php echo wp_get_attachment_image_src(get_field('activity-vedio-cover'), 'thumbnail')[0]; ?>" class="img-responsive">    
+        		<img src="<?php echo wp_get_attachment_image_src(get_field('activity-vedio-cover'), 'thumbnail')[0]; ?>" class="img-responsive">
         		<p class="pic-preview-title"><?php the_title(); ?></p>
         		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
         	</a>

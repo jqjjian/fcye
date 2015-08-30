@@ -747,7 +747,7 @@ body{
 		overflow:hidden;
 		margin-bottom:50px;
 		img{padding:0;margin:0;}
-		.page-img{
+		span a,.page-img{
 			position:absolute;
 			width:52px;
 			height:126px;
@@ -758,6 +758,15 @@ body{
 				left:0;
 			}
 			&.img-next{
+				right:2px;
+				background-position: -54px 0;
+			}
+		}
+		span{
+			&:first-child a{
+				left:0;
+			}
+			&:last-child a{
 				right:2px;
 				background-position: -54px 0;
 			}
