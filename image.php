@@ -47,8 +47,9 @@ get_header(); ?>
                 $title = get_post($post_id) -> post_title;
                 $otp = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',do_shortcode(get_post($post_id) -> post_content), $matches);
                 $count = count($matches[1]);
+                $atta = get_attached_media( 'image', $post_id );
             ?>
-    		<span class="img-size">专辑(<?php echo $count; ?>张)</span>
+    		<span class="img-size">专辑(<?php echo count($atta); ?>张)</span>
     		<p>
                 <b>
                     <?php echo $title; ?>
@@ -66,17 +67,23 @@ get_header(); ?>
                     'suppress_filters' => true
                   );
                   $images = array_values(get_children( $args ));
-                  $attachments = get_attached_media( 'image', $post_id );
+                  $ags = get_children( $args );
+                  
                 ?>
-                
-    			<a href="<?php echo get_attachment_link(get_the_id()); ?>" class="img-ltem active">
-    				<img src="<?php echo wp_get_attachment_thumb_url(get_the_id()); ?>" width="70" height="70"></a>
+                <?php if($ags) : ?>
+                    <?php foreach ($ags as $attachment -> ID) : ?>
+                        <a href="<?php echo get_attachment_link($attachment -> ID); ?>" class="img-ltem active">
+                            <img src="<?php echo wp_get_attachment_image_src( 1 , 'thumbnail' )[0]; ?>" width="70" height="70">
+                        </a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
     		</div>
     	</div>
-        <pre><?php echo count($attachments) ;?></pre>
+        
     </div>
     </div>
 </div>
+<pre><?php print_r($atta) ;?></pre>
 <?php get_footer(); ?>
 		<!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
