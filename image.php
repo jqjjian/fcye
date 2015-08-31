@@ -14,7 +14,8 @@ get_header(); ?>
                     'post_type' => 'attachment',
                     'post_mime_types' => 'image',
                     'order' => 'ASC',
-                    'orderby' => 'menu_order ID'
+                    'orderby' => 'menu_order ID',
+                    'suppress_filters'=> true
                 ) ));
                 foreach($attachments as $k => $attachment) :
                     if ($attachment -> ID == $post-> ID)
@@ -31,7 +32,6 @@ get_header(); ?>
                     $next_attachments_url = wp_get_attachment();
                 endif;
                 ?>
-
             	<div class="pic-box">
                     <span><?php previous_image_link(0,'&nbsp;'); ?></span>
             		<img src="<?php echo wp_get_attachment_image_src($post -> ID, 'medium')[0]; ?>" width="100%" class="img-responsive">
@@ -40,14 +40,13 @@ get_header(); ?>
             <?php endwhile; ?>
         <?php endif; ?>
     </div>
-    
     <div class="col-md-2 pl5">
     	<div class="img-list-head">
              <?php
                 $post_id = wp_get_post_parent_id(get_the_id());
                 $title = get_post($post_id) -> post_title;
                 $otp = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',do_shortcode(get_post($post_id) -> post_content), $matches);
-                $count =count($matches[1]);
+                $count = count($matches[1]);
             ?>
     		<span class="img-size">专辑(<?php echo $count; ?>张)</span>
     		<p>
@@ -58,10 +57,23 @@ get_header(); ?>
     	</div>
     	<div class="img-list-box">
     		<div class="img-row">
-    			<a href="#" class="img-ltem active">
-    				<img src="" width="70" height="70"></a>
+                <?php
+                  $args = array(
+                    'order'        => 'ASC',
+                    'post_parent'    => $post_id,
+                    'post_type'      => 'attachment',
+                    'post_mime_type' => 'image',
+                    'suppress_filters' => true
+                  );
+                  $images = array_values(get_children( $args ));
+                  $attachments = get_attached_media( 'image', $post_id );
+                ?>
+                
+    			<a href="<?php echo get_attachment_link(get_the_id()); ?>" class="img-ltem active">
+    				<img src="<?php echo wp_get_attachment_thumb_url(get_the_id()); ?>" width="70" height="70"></a>
     		</div>
     	</div>
+        <pre><?php echo count($attachments) ;?></pre>
     </div>
     </div>
 </div>
