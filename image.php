@@ -1,7 +1,4 @@
 <?php
-/**
- * Template Name: 活动剪影
- */
 get_header(); ?>
 
 <div class="container activity_single">
@@ -29,7 +26,7 @@ get_header(); ?>
                         $next_attachments_url = get_attachment_link($attachments[0] -> ID);
                     endif;
                 else:
-                    $next_attachments_url = wp_get_attachment();
+                    $next_attachments_url = wp_get_attachment_url();
                 endif;
                 ?>
             	<div class="pic-box">
@@ -60,20 +57,23 @@ get_header(); ?>
     		<div class="img-row">
                 <?php
                   $args = array(
-                    'order'        => 'ASC',
+                    'order'          => 'ASC',
+                    'orderby'        => 'menu_order ID',
+                    'post_status'    => 'inherit',
                     'post_parent'    => $post_id,
                     'post_type'      => 'attachment',
                     'post_mime_type' => 'image',
-                    'suppress_filters' => true
+
                   );
                   $images = array_values(get_children( $args ));
                   $ags = get_children( $args );
-                  
+                  $attachment_size = apply_filters('fcye_attachment', array(70,70) );
                 ?>
                 <?php if($ags) : ?>
-                    <?php foreach ($ags as $attachment -> ID) : ?>
-                        <a href="<?php echo get_attachment_link($attachment -> ID); ?>" class="img-ltem active">
-                            <img src="<?php echo wp_get_attachment_image_src( 1 , 'thumbnail' )[0]; ?>" width="70" height="70">
+                    <?php foreach ($ags as $attachment_id => $attachment) : ?>
+
+                        <a href="<?php echo get_attachment_link($attachment -> ID); ?>" class="img-ltem <?php if($attachment_id == get_the_id()){echo 'active';}?>">
+                            <img src="<?php echo wp_get_attachment_image_src($attachment_id)[0]; ?>" width="70" height="70">
                         </a>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -83,7 +83,6 @@ get_header(); ?>
     </div>
     </div>
 </div>
-<pre><?php print_r($atta) ;?></pre>
 <?php get_footer(); ?>
 		<!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

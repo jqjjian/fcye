@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: 活动剪影
+ * Template Name: 公益慈善
  */
 get_header(); ?>
 
@@ -43,10 +43,10 @@ get_header(); ?>
     	</a>
     </div>
     <?php $myqueryargs = array(
-	    'post_type'      => 'activity',
+	    'post_type'      => 'publicbenefit',
 	    'posts_per_page' => 9,
 	    'orderby'        => 'date',
-	    'category__in' => 9,
+	    'category__in' => 11,
 	  ); ?>
 	  <?php $myquery =  new WP_Query($myqueryargs); ?>
 	  <?php if($myquery -> have_posts()) : ?>
@@ -85,10 +85,10 @@ get_header(); ?>
     	</a>
     </div>
      <?php $myvedios = array(
-      'post_type'      => 'activity',
+      'post_type'      => 'publicbenefit',
       'posts_per_page' => 9,
       'orderby'        => 'date',
-      'category__in' => 10,
+      'category__in' => 12,
     ); ?>
     <?php $myvedio=  new WP_Query($myvedios); ?>
     <?php if($myvedio -> have_posts()) : ?>
@@ -105,7 +105,7 @@ get_header(); ?>
         ?>
         <div class="col-sm-5ths">
         	<a href="<?php the_permalink(); ?>" class="pic-preview">
-        		<img src="<?php echo wp_get_attachment_image_src(get_field('activity-video-cover'), 'thumbnail')[0]; ?>" class="img-responsive">
+        		<img src="<?php echo wp_get_attachment_image_src(get_field('publicbenefit-video-cover'), 'thumbnail')[0]; ?>" class="img-responsive">
         		<p class="pic-preview-title"><?php the_title(); ?></p>
         		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
         	</a>

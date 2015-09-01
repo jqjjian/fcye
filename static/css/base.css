@@ -7180,6 +7180,10 @@ body {
   background: url(../images/img-page-bg.png) 0 0 no-repeat;
   top: 50%;
   margin-top: -63px;
+  text-decoration: none;
+}
+.activity_single .pic-box span a:focus, .activity_single .pic-box span a:hover, .activity_single .pic-box .page-img:focus, .activity_single .pic-box .page-img:hover {
+  text-decoration: none;
 }
 .activity_single .pic-box span a.img-prev, .activity_single .pic-box .page-img.img-prev {
   left: 0;

@@ -754,6 +754,11 @@ body{
 			background:url(../images/img-page-bg.png) 0 0 no-repeat;
 			top:50%;
 			margin-top:-63px;
+			text-decoration: none;
+			&:focus,
+			&:hover{
+				text-decoration: none;
+			}
 			&.img-prev{
 				left:0;
 			}

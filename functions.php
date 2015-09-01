@@ -497,6 +497,7 @@ add_image_size('新闻配图大' , 750, 316, true);
 add_image_size('创业者头像' , 210, 250, true);
 add_image_size('企业logo' , 124, 124);
 add_image_size('视频封面' , 930, 550, true);
+add_image_size('imgthumb' , 70, 70, true);
 
 /**
  * 设置文章摘要默认显示字数
@@ -580,6 +581,15 @@ function post_img_number(){
   $cnt = count( $matches[1] );
   return $cnt;
 }
+/**
+ * 添加脚本文件
+ */
+function fcye_scripts(){
+  if(get_post_type() == 'activity' || get_post_type() == 'publicbenefit'){
+    wp_enqueue_script('jwplayer', get_template_directory_uri() . '/jwplayer/jwplayer.js');
+  }
+}
+add_action('wp_enqueue_scripts', 'fcye_scripts');
 //隐藏版本号
 function wpbeginner_remove_version() {
 return '';
