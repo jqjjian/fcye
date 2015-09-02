@@ -821,6 +821,32 @@ body{
 		}
 	}
 }
+.introduction{
+	padding: 30px 0;
+	.introduction-menu{
+		a{
+			display:block;
+			border-bottom:1px solid #959595;
+			height:38px;
+			line-height:38px;
+			text-align:center;
+			color:#000;
+			text-decoration: none;
+			&.active{
+				color:$label-color;
+				background:$dominant-color;
+				&:hover,
+				&:focus{
+					color:$label-color;
+				}
+			}
+			&:hover,
+			&:focus{
+				color:$dominant-color;
+			}
+		}
+	}
+}
 /* footer */
 footer{
 	border-top:5px solid #324d5b;

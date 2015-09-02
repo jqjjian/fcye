@@ -105,7 +105,7 @@ get_header(); ?>
         ?>
         <div class="col-sm-5ths">
         	<a href="<?php the_permalink(); ?>" class="pic-preview">
-        		<img src="<?php echo wp_get_attachment_image_src(get_field('activity-video-cover'), 'thumbnail')[0]; ?>" class="img-responsive">
+        		<img src="<?php echo wp_get_attachment_image_src(get_field('video-cover'), 'thumbnail')[0]; ?>" class="img-responsive">
         		<p class="pic-preview-title"><?php the_title(); ?></p>
         		<p class="pic-preview-time"><?php the_time('Y年m月d日'); ?></p>
         	</a>

@@ -1,0 +1,43 @@
+doctype html
+html(lang="zh-CN")
+  include ../public/_header
+  body
+    include ../public/_nav
+    section.banner
+      .container
+        .row
+          .col-md-12
+            .banner-bg(style="background:url(../static/images/banner_04.jpg) center 0 no-repeat;")
+    section.introduction#introduction
+      .container
+        .row
+          .col-md-2.introduction-menu
+            a.active(href="#") 菜单1
+            a(href="#") 菜单2
+            a(href="#") 菜单3
+            a(href="#") 菜单4
+          .col-md-10
+            ol.breadcrumb
+              li
+                a(href="#") 首页
+              li
+                a(href="#") 关于
+              li.active 服务介绍
+            p Lorem ipsum dolor sit amet, ut cum nisl suscipiantur, mundi graece audire nam ne, vel ea quidam putant scriptorem. Eos eu velit viris legimus, legere platonem ullamcorper eu mei. Mei te saepe accusamus repudiandae, quis rationibus nec no. Ullum mentitum ut pro. Vel et legere patrioque, eum iisque minimum et. Cu quo epicurei definitiones. Oblique eruditi atomorum vis ad, qui ad lucilius conclusionemque, clita noster euripidis ex mei.No est omnis dicit altera, vis cu erat assum. Cibo graeci eu vix. Est cu persius abhorreant theophrastus, hinc sale sententiae te cum. Quo an vivendum tacimates. Fugit primis eirmod in sit, has laoreet inermis at.Ullum utinam commodo quo cu. Nam ne denique fastidii insolens, ad soluta adversarium eos. Verear insolens moderatius ex pro. Ut stet fierent facilisi qui.Ne est utamur expetenda, delenit mnesarchum et his, at tantas numquam nec. Cu sit reprimique omittantur, cum id essent singulis molestiae. Ex sed delectus scriptorem mediocritatem, elit impetus intellegat in mel. Eum at illud graecis. Liber ubique referrentur an quo, dolor assentior rationibus ne ius, iusto docendi ea mea.Ei quot augue mea, id mea quas nominavi perpetua. Augue tritani has eu, pri ad quas mnesarchum dissentias, qui te doctus meliore facilis. Nec no zril tantas oblique. Ea posse deserunt nec, ipsum appellantur vim ex, at munere vulputate assueverit per. Ad hendrerit omittantur reformidans pro, tempor voluptua cu sea. Usu ad ludus legimus consequat, explicari inciderint id cum, eam commodo aeterno apeirian eu.Lorem ipsum dolor sit amet, ut cum nisl suscipiantur, mundi graece audire nam ne, vel ea quidam putant scriptorem. Eos eu velit viris legimus, legere platonem ullamcorper eu mei. Mei te saepe accusamus repudiandae, quis rationibus nec no. Ullum mentitum ut pro. Vel et legere patrioque, eum iisque minimum et. Cu quo epicurei definitiones. Oblique eruditi atomorum vis ad, qui ad lucilius conclusionemque, clita noster euripidis ex mei.No est omnis dicit altera, vis cu erat assum. Cibo graeci eu vix. Est cu persius abhorreant theophrastus, hinc sale sententiae te cum. Quo an vivendum tacimates. Fugit primis eirmod in sit, has laoreet inermis at.Ullum utinam commodo quo cu. Nam ne denique fastidii insolens, ad soluta adversarium eos. Verear insolens moderatius ex pro. Ut stet fierent facilisi qui.Ne est utamur expetenda, delenit mnesarchum et his, at tantas numquam nec. Cu sit reprimique omittantur, cum id essent singulis molestiae. Ex sed delectus scriptorem mediocritatem, elit impetus intellegat in mel. Eum at illud graecis. Liber ubique referrentur an quo, dolor assentior rationibus ne ius, iusto docendi ea mea.Ei quot augue mea, id mea quas nominavi perpetua. Augue tritani has eu, pri ad quas mnesarchum dissentias, qui te doctus meliore facilis. Nec no zril tantas oblique. Ea posse deserunt nec, ipsum appellantur vim ex, at munere vulputate assueverit per. Ad hendrerit omittantur reformidans pro, tempor voluptua cu sea. Usu ad ludus legimus consequat, explicari inciderint id cum, eam commodo aeterno apeirian eu.
+
+    include ../public/_footer
+    //jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+    //Include all compiled plugins (below), or include individual files as needed
+    script(src="../public/bootstrap/js/bootstrap.min.js")
+    //base
+    //script(src="static/js/base.js")
+    //script(src="static/js/baseAjax.js")
+    script.
+      (function(window,undefined){
+        var topHeight = $('.navbar').height(),
+            bannerHeight = $('.banner').height(),
+            footerHeight = $('footer').height(),
+            reelHeight = $(window).height() - (topHeight+bannerHeight+footerHeight+39)
+        $('#introduction').css('min-height',reelHeight)
+      })(window)

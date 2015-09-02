@@ -7243,6 +7243,29 @@ body {
   top: 0;
 }
 
+.introduction {
+  padding: 30px 0;
+}
+.introduction .introduction-menu a {
+  display: block;
+  border-bottom: 1px solid #959595;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+}
+.introduction .introduction-menu a.active {
+  color: #fff;
+  background: #0baca6;
+}
+.introduction .introduction-menu a.active:hover, .introduction .introduction-menu a.active:focus {
+  color: #fff;
+}
+.introduction .introduction-menu a:hover, .introduction .introduction-menu a:focus {
+  color: #0baca6;
+}
+
 /* footer */
 footer {
   border-top: 5px solid #324d5b;

@@ -83,6 +83,7 @@ get_header(); ?>
     </div>
     </div>
 </div>
+<pre><?php print_r(get_post_type($post_id));?></pre>
 <?php get_footer(); ?>
 		<!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
