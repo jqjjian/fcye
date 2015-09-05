@@ -490,7 +490,120 @@ function partner_updated_messages( $messages ) {
 add_filter( 'post_updated_messages', 'partner_updated_messages' );
 
 /**
- * 添加缩略图尺寸http://localhost:8000/fcye/static/images/u=1977945241,1806250151&fm=21&gp=0.jpg
+ * 自定义内容类型 - 青创简介
+ */
+function introduction_custom_post_introduction(){
+	$labels = array(
+		'name'               =>	'青创简介',
+		'singular_name'      =>	'青创简介',
+		'add_new'            =>	'添加简介',
+		'add_new_item'       =>	'添加简介信息',
+		'edit_item'          =>	'编辑简介信息',
+		'new_item'           =>	'新的简介',
+		'all_items'          =>	'所有简介',
+		'view_item'          =>	'查看简介',
+		'search_item'        =>	'搜索简介',
+		'not_found'          =>	'未找到简介信息',
+		'not_found_in_trash' =>	'回收站里没找到简介信息',
+		'menu_name'          =>	'青创简介'
+	);
+	$args = array(
+		'public'        => true,
+		'labels'        => $labels,
+		'menu_position' => 7,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => true,//使用归档页面模板
+		'rewrite'				=> array('slug' => 'introduction-page', 'with_front' => false),//重写归档地址,去掉archives
+	);
+	register_post_type('introduction', $args );
+}
+add_action('init', 'introduction_custom_post_introduction' );
+
+/*
+ * 自定义内容类型的内容更新信息 - 青创简介
+ */
+function introduction_updated_messages( $messages ) {
+  global $post, $post_ID;
+
+  $messages['introduction'] = array(
+    0 => '', // 没有用，信息从索引 1 开始。
+    1 => sprintf( __('简介已更新，<a href="%s">点击查看</a>', 'introduction'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('自定义字段已更新。', 'introduction'),
+    3 => __('自定义字段已删除。', 'introduction'),
+    4 => __('简介已更新。', 'introduction'),
+    // translators: %s: 修订版本的日期与时间
+    5 => isset($_GET['revision']) ? sprintf( __('简介恢复到了 %s 这个修订版本。', 'introduction'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('简介已发布，<a href="%s">点击查看</a>', 'introduction'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('简介已保存', 'introduction'),
+    8 => sprintf( __('简介已提交， <a target="_blank" href="%s">点击预览</a>', 'introduction'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('简介发布于：<strong>%1$s</strong>， <a target="_blank" href="%2$s">点击预览</a>', 'introduction'),
+      // translators: 发布选项日期格式，查看 http://php.net/date
+      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('简介草稿已更新，<a target="_blank" href="%s">点击预览</a>', 'introduction'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'introduction_updated_messages' );
+
+/**
+ * 自定义内容类型 - 服务介绍
+ */
+function service_custom_post_service(){
+	$labels = array(
+		'name'               =>	'服务介绍',
+		'singular_name'      =>	'服务介绍',
+		'add_new'            =>	'添加服务',
+		'add_new_item'       =>	'添加服务信息',
+		'edit_item'          =>	'编辑服务信息',
+		'new_item'           =>	'新的服务',
+		'all_items'          =>	'所有服务',
+		'view_item'          =>	'查看服务',
+		'search_item'        =>	'搜索服务',
+		'not_found'          =>	'未找到服务信息',
+		'not_found_in_trash' =>	'回收站里没找到服务信息',
+		'menu_name'          =>	'服务介绍'
+	);
+	$args = array(
+		'public'        => true,
+		'labels'        => $labels,
+		'menu_position' => 8,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => true,//使用归档页面模板
+		'rewrite'				=> array('slug' => 'service-page', 'with_front' => false),//重写归档地址,去掉archives
+	);
+	register_post_type('service', $args );
+}
+add_action('init', 'service_custom_post_service' );
+
+/*
+ * 自定义内容类型的内容更新信息 - 服务介绍
+ */
+function service_updated_messages( $messages ) {
+  global $post, $post_ID;
+
+  $messages['service'] = array(
+    0 => '', // 没有用，信息从索引 1 开始。
+    1 => sprintf( __('服务已更新，<a href="%s">点击查看</a>', 'service'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('自定义字段已更新。', 'service'),
+    3 => __('自定义字段已删除。', 'service'),
+    4 => __('服务已更新。', 'service'),
+    // translators: %s: 修订版本的日期与时间
+    5 => isset($_GET['revision']) ? sprintf( __('服务恢复到了 %s 这个修订版本。', 'service'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('服务已发布，<a href="%s">点击查看</a>', 'service'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('服务已保存', 'service'),
+    8 => sprintf( __('服务已提交， <a target="_blank" href="%s">点击预览</a>', 'service'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('服务发布于：<strong>%1$s</strong>， <a target="_blank" href="%2$s">点击预览</a>', 'service'),
+      // translators: 发布选项日期格式，查看 http://php.net/date
+      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('服务草稿已更新，<a target="_blank" href="%s">点击预览</a>', 'service'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'service_updated_messages' );
+/**
+ * 添加缩略图尺寸
  */
 add_image_size('新闻配图小' , 320, 150, true);
 add_image_size('新闻配图大' , 750, 316, true);

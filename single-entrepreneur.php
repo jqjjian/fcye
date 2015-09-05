@@ -37,6 +37,7 @@
               <hr>
               <p class="indent"><?php the_content(); ?></p>
             </div>
+          
           </div>
         </div>
         <div class="info-bx">

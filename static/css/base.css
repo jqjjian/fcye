@@ -7189,14 +7189,14 @@ body {
   left: 0;
 }
 .activity_single .pic-box span a.img-next, .activity_single .pic-box .page-img.img-next {
-  right: 2px;
+  right: 0;
   background-position: -54px 0;
 }
 .activity_single .pic-box span:first-child a {
   left: 0;
 }
 .activity_single .pic-box span:last-child a {
-  right: 2px;
+  right: 0;
   background-position: -54px 0;
 }
 .activity_single .img-list-head {
@@ -7245,6 +7245,13 @@ body {
 
 .introduction {
   padding: 30px 0;
+}
+.introduction .breadcrumb {
+  padding: 0 0;
+}
+.introduction hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .introduction .introduction-menu a {
   display: block;

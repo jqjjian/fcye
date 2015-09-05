@@ -49,9 +49,7 @@
 </section>
 <section class="text-center page">
   <nav>
-  	<?php echo '111'; ?>
      <?php wp_pagenavi(array('query' => $myentrepreneur)); ?>
-     <?php echo '22'; ?>
   </nav>
 </section>
 <?php get_footer(); ?>

@@ -41,7 +41,7 @@ get_header(); ?>
                   'post_type'        =>'activity',
                   'posts_per_page'   => 10,
                   'orderby'          => 'date',
-                  'category__in'     => 10,
+                  'category__in'     => 16,
                   );
                   $attachment_size = apply_filters('fcye_attachment', array(70,70) );
                 ?>

@@ -46,7 +46,7 @@ get_header(); ?>
 	    'post_type'      => 'activity',
 	    'posts_per_page' => 9,
 	    'orderby'        => 'date',
-	    'category__in' => 9,
+	    'category__in' => 15,
 	  ); ?>
 	  <?php $myquery =  new WP_Query($myqueryargs); ?>
 	  <?php if($myquery -> have_posts()) : ?>
@@ -88,7 +88,7 @@ get_header(); ?>
       'post_type'      => 'activity',
       'posts_per_page' => 9,
       'orderby'        => 'date',
-      'category__in' => 10,
+      'category__in' => 16,
     ); ?>
     <?php $myvedio=  new WP_Query($myvedios); ?>
     <?php if($myvedio -> have_posts()) : ?>

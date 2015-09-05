@@ -46,7 +46,7 @@ get_header(); ?>
 	    'post_type'      => 'publicbenefit',
 	    'posts_per_page' => 9,
 	    'orderby'        => 'date',
-	    'category__in' => 11,
+	    'category__in' => 17,
 	  ); ?>
 	  <?php $myquery =  new WP_Query($myqueryargs); ?>
 	  <?php if($myquery -> have_posts()) : ?>
@@ -88,7 +88,7 @@ get_header(); ?>
       'post_type'      => 'publicbenefit',
       'posts_per_page' => 9,
       'orderby'        => 'date',
-      'category__in' => 12,
+      'category__in' => 18,
     ); ?>
     <?php $myvedio=  new WP_Query($myvedios); ?>
     <?php if($myvedio -> have_posts()) : ?>

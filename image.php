@@ -71,7 +71,6 @@ get_header(); ?>
                 ?>
                 <?php if($ags) : ?>
                     <?php foreach ($ags as $attachment_id => $attachment) : ?>
-
                         <a href="<?php echo get_attachment_link($attachment -> ID); ?>" class="img-ltem <?php if($attachment_id == get_the_id()){echo 'active';}?>">
                             <img src="<?php echo wp_get_attachment_image_src($attachment_id)[0]; ?>" width="70" height="70">
                         </a>

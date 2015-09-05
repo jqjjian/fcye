@@ -763,7 +763,7 @@ body{
 				left:0;
 			}
 			&.img-next{
-				right:2px;
+				right:0;
 				background-position: -54px 0;
 			}
 		}
@@ -772,7 +772,7 @@ body{
 				left:0;
 			}
 			&:last-child a{
-				right:2px;
+				right:0;
 				background-position: -54px 0;
 			}
 		}
@@ -822,6 +822,13 @@ body{
 	}
 }
 .introduction{
+	.breadcrumb{
+		padding:0 0;
+	}
+	hr{
+		margin-top:10px;
+		margin-bottom:10px;
+	}
 	padding: 30px 0;
 	.introduction-menu{
 		a{
